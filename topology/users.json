@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1734255123456,
+    "username": "admin",
+    "email": "admin@mail.com",
+    "password": "$2b$10$k9..."
+  },
+  {
+    "id": 1765784601116,
+    "username": "oz",
+    "email": "abdo666essabki@gmail.com",
+    "password": "$2b$10$751DIzrJHJtKONTu/4j7EucqI0WwXF5mkldhRd/HFbkM.QQ.m2L7e"
+  },
+  {
+    "id": 1765784765517,
+    "username": "ads",
+    "email": "admin@gmail.com",
+    "password": "$2b$10$RvcCMs4YqoYiiEBmeaRW/.mUaMl5TK2RDkYYt2.C07PdtRShWYLEy"
+  },
+  {
+    "id": 1765784950314,
+    "username": "oz 00ms",
+    "email": "abdo999essabki@gmail.com",
+    "password": "$2b$10$bGAqz5tdmJlyglMPz1tlauvo7VtU/7jJUx/wx12HAb9wzRLBvvrri"
+  }
+]
