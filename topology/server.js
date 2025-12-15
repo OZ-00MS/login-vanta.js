@@ -1,5 +1,4 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
@@ -14,41 +13,46 @@ app.use(express.static("public"));
 
 /* HELPERS */
 function readUsers() {
-  const data = fs.readFileSync(USERS_FILE, "utf8");
-  return JSON.parse(data);
+  if (!fs.existsSync(USERS_FILE)) return [];
+  return JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
 }
 
 function saveUsers(users) {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
 
-/* SIGN UP */
-app.post("/signup", async (req, res) => {
+/* ROUTES */
+
+/* Serve index.html */
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+/* SIGNUP - plain text */
+app.post("/signup", (req, res) => {
   const { username, email, password } = req.body;
 
   const users = readUsers();
 
-  // check if user exists
   if (users.find(u => u.username === username)) {
     return res.send("User already exists ❌");
   }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
 
   users.push({
     id: Date.now(),
     username,
     email,
-    password: hashedPassword
+    password // store plain password
   });
 
   saveUsers(users);
 
-  res.send("Signup successful ✅");
+  // redirect to login page (page2)
+  return res.redirect("/?page=login");
 });
 
-/* LOGIN */
-app.post("/login", async (req, res) => {
+/* LOGIN - plain text */
+app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
   const users = readUsers();
@@ -58,15 +62,20 @@ app.post("/login", async (req, res) => {
     return res.send("User not found ❌");
   }
 
-  const match = await bcrypt.compare(password, user.password);
-
-  if (!match) {
+  if (user.password !== password) {
     return res.send("Wrong password ❌");
   }
 
-  res.send("Login successful 🎉");
+  // redirect to home page
+  return res.redirect("/home.html");
 });
 
+/* Serve home.html */
+app.get("/home.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
+});
+
+/* START SERVER */
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });

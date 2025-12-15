@@ -1,26 +1,26 @@
 [
   {
-    "id": 1734255123456,
+    "id": 1765838154798,
     "username": "admin",
-    "email": "admin@mail.com",
-    "password": "$2b$10$k9..."
-  },
-  {
-    "id": 1765784601116,
-    "username": "oz",
-    "email": "abdo666essabki@gmail.com",
-    "password": "$2b$10$751DIzrJHJtKONTu/4j7EucqI0WwXF5mkldhRd/HFbkM.QQ.m2L7e"
-  },
-  {
-    "id": 1765784765517,
-    "username": "ads",
     "email": "admin@gmail.com",
-    "password": "$2b$10$RvcCMs4YqoYiiEBmeaRW/.mUaMl5TK2RDkYYt2.C07PdtRShWYLEy"
+    "password": "0000"
   },
   {
-    "id": 1765784950314,
-    "username": "oz 00ms",
-    "email": "abdo999essabki@gmail.com",
-    "password": "$2b$10$bGAqz5tdmJlyglMPz1tlauvo7VtU/7jJUx/wx12HAb9wzRLBvvrri"
+    "id": 1765838501012,
+    "username": "admin1",
+    "email": "admin1@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": 1765839164362,
+    "username": "admin2",
+    "email": "admin2@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": 1765842106421,
+    "username": "oz",
+    "email": "oz@gmail.com",
+    "password": "ozoz"
   }
 ]
